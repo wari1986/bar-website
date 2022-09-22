@@ -1,9 +1,5 @@
 import { React, useState } from "react";
 import Link from "next/link";
-// import { AiOutlineShopping } from "react-icons/ai";
-
-// import { Cart } from "./";
-// import { useStateContext } from "../context/StateContext";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
@@ -11,40 +7,35 @@ const Navbar = () => {
   const handleClick = () => setNav(!nav);
 
   return (
-    <div>
-      <div className="flex py-4 md:flex-col-reverse lg:flex-col-reverse lg:pt-8 px-4">
+    <div className="w-screen p-6 ">
+      <div className="flex lg:px-12">
+        <div className="flex items-center w-full cursor-pointer">
+          <p className="text-3xl text-left lg:text-5xl ">
+            <Link href="/">
+              <h1>Chez Albina</h1>
+            </Link>
+          </p>
+        </div>
         {/* Toogle button */}
         <div
           onClick={handleClick}
-          className="flex items-center text-lg text-[#686868] md:hidden z-10"
+          className="flex items-center text-lg  md:hidden z-10"
         >
           {!nav ? <FaBars /> : <FaTimes />}
         </div>
 
-        <div className="invisible space-y-0 md:my-12 lg:text-sm lg:space-y-4 lg:my-12 text-[#666666] md:visible lg:visible text-right">
-          <p className="active:text-[#333333] text-bold">
-            <Link href="/">Home</Link>
-          </p>
-          <p className="active:text-[#333333] text-bold">
-            <Link href="/portfolio">Portfolio</Link>
-          </p>
+        <div className="hidden md:flex lg:space-x-8 lg:text-lg cursor-pointer">
+          <Link href="/about">
+            <p className="active:text-[#333333] text-bold">About</p>
+          </Link>
+          <Link href="/menu">
+            <p className="active:text-[#333333] text-bold">Menu</p>
+          </Link>
           <div className="flex justify-end">
-            <p className="active:text-[#333333] text-bold">
-              <Link href="/contactForm">Connect</Link>
-            </p>
-            <button className="pl-2">+</button>
-          </div>
-        </div>
-        <div className="flex justify-end items-center w-full">
-          <p className="text-xl text-[#2B2B2B] text-right  lg:text-2xl">
-            <Link href="/">
-              <a>
-                ADRIANA ESPINOZA
-                <br />
-                makeup artist |<br /> hairstylist
-              </a>
+            <Link href="/contact">
+              <p className="active:text-[#333333] text-bold">Contact</p>
             </Link>
-          </p>
+          </div>
         </div>
       </div>
 
@@ -54,36 +45,18 @@ const Navbar = () => {
           className={
             !nav
               ? "hidden"
-              : "text-[#686868] top-22 left-0 w-full h-1/9 absolute flex flex-col justify-center items-center z-10 bg-white"
+              : " top-22 left-0 w-full h-1/2 absolute flex flex-col bg-black justify-center items-center z-10  space-y-8 cursor-pointer"
           }
         >
-          <li className="py-1 text-xs">
-            <Link onClick={handleClick} href="/" smooth={true} duration={500}>
-              Home
-            </Link>
-          </li>
-          <li className="py-1 text-xs">
-            {" "}
-            <Link
-              onClick={handleClick}
-              href="/portfolio"
-              smooth={true}
-              duration={500}
-            >
-              Portfolio
-            </Link>
-          </li>
-          <li className="py-1 text-xs">
-            {" "}
-            <Link
-              onClick={handleClick}
-              href="/contactForm"
-              smooth={true}
-              duration={500}
-            >
-              Connect
-            </Link>
-          </li>
+          <Link href="/about">
+            <li className="text-lg">About</li>
+          </Link>
+          <Link href="/menu">
+            <li className="text-lg">Menu</li>
+          </Link>
+          <Link href="/contact">
+            <li className="text-lg">Contact</li>
+          </Link>
         </ul>
       </div>
     </div>

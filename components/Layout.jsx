@@ -1,49 +1,36 @@
-import React from 'react';
-import Head from 'next/head';
+import React from "react";
+import Head from "next/head";
 
-import Navbar from './Navbar';
-import Footer from './Footer';
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   return (
-    <div className="flex">
+    <div className="bg-black text-white h-full">
       <Head>
-        <title>Adriana Espinoza MUA</title>
+        <title>Chez Albina Bar</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta property="og:type" content="website" />
-        <meta
-          name="description"
-          content="Portfolio website for adriana espinoza makeup artist"
-        />
-        <meta name="url" content="http://www.adrianaespinoza.com" />
+        <meta name="description" content="Bar website for Chez Albina" />
+        <meta name="url" content="http://www.chezalbina.be" />
         <meta
           name="keywords"
-          content="makeup artist, hairstylist, beauty, self-care, special effects, wedding"
+          content="bar, food, beer, cocktails, pool, karaoke, neighbourhood, family"
         />
         <meta name="language" content="en-US" />
         <meta name="robots" content="index" />
-
       </Head>
-      {/* <div className="w-1/6 flex flex-col justify-between py-12 text-right"> */}
-      <div className="w-full h-screen md:flex lg:flex">
-        <div className="md:hidden lg:hidden">
+      <div className="">
+        <header className="">
           <Navbar />
-        </div>
-        <main className="w-full xl:w-5/6">{children}</main>
-        <div className="md:hidden lg:hidden">
+        </header>
+        <main className="">{children}</main>
+        <footer className="">
           <Footer />
-        </div>
-        <div className="hidden sm:visible md:visible md:flex md:flex-col md:w-2/5 lg:flex flex-col xl:w-1/6 justify-between">
-          <header className="flex justify-end">
-            <Navbar />
-          </header>
-          <footer>
-            <Footer />
-          </footer>
-        </div>
+        </footer>
       </div>
     </div>
   );
-}
+};
 
-export default Layout
+export default Layout;
